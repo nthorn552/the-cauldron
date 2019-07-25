@@ -16,7 +16,7 @@ const styles = ({ spacing }: Theme) =>
     }
   });
 
-class ShmacPage extends Component<WithStyles<typeof styles>> {
+class DashboardPage extends Component<WithStyles<typeof styles>> {
   render = () => {
     return (
       <Container className={this.props.classes.pageWrapper}>
@@ -26,4 +26,4 @@ class ShmacPage extends Component<WithStyles<typeof styles>> {
   };
 }
 
-export default connect()(withStyles(styles)(ShmacPage));
+export default connect()(withStyles(styles)(DashboardPage));
