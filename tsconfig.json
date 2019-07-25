@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "outDir": "./dist/",
     "sourceMap": true,
+    "noEmit": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
