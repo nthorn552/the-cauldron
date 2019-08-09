@@ -1,4 +1,4 @@
-import { Device, ADD_DEVICE, UPDATE_DEVICE, DeviceActionTypes } from "./types";
+import { Device, deviceActionKeys, DeviceActionTypes } from "./types";
 
 export interface State {
   devices: Device[];
@@ -10,9 +10,9 @@ const initialState: State = {
 
 function deviceReducer(state = initialState, action: DeviceActionTypes) {
   switch (action.type) {
-    case ADD_DEVICE: {
+    case deviceActionKeys.FETCH_REQUEST: {
     }
-    case UPDATE_DEVICE: {
+    case deviceActionKeys.SET_FOCUS: {
     }
   }
   return state;

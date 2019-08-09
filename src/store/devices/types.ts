@@ -13,7 +13,7 @@ export type Device = {
   siteUid: string;
 };
 
-export const deviceActionKeys = {
+export const deviceActionTypes = {
   FETCH_REQUEST: "@@Device/FETCH_REQUEST",
   FETCH_SUCCESS: "@@Device/FETCH_SUCCESS",
   FETCH_ERROR: "@@Device/FETCH_ERROR",
@@ -21,11 +21,11 @@ export const deviceActionKeys = {
 };
 
 interface FetchDevicesAction {
-  type: typeof FETCH_REQUEST;
+  type: typeof deviceActionKeys.FETCH_REQUEST;
 }
 
 interface SetFocusAction {
-  type: typeof SET_FOCUS;
+  type: typeof deviceActionKeys.SET_FOCUS;
   payload: Device;
 }
 

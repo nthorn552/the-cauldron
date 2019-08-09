@@ -26,4 +26,6 @@ class DashboardPage extends Component<WithStyles<typeof styles>> {
   };
 }
 
+function mapStateToProps(state) {}
+
 export default connect()(withStyles(styles)(DashboardPage));
