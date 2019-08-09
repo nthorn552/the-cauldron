@@ -20,7 +20,7 @@ class DashboardPage extends Component<WithStyles<typeof styles>> {
   render = () => {
     return (
       <Container className={this.props.classes.pageWrapper}>
-        <Paper>test</Paper>
+        <Paper>Num of devices: {}</Paper>
       </Container>
     );
   };

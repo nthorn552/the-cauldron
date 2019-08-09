@@ -1,23 +1,19 @@
 import * as React from "react";
-import { createStore } from "redux";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import { composeWithDevTools } from "redux-devtools-extension";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Typography from "@material-ui/core/Typography";
 
 import theme from "./MuiThemeProvider";
 import Header from "./components/header/Header";
+import Dashboard from "./pages/Dashboard";
 import Shmac from "./pages/Shmac";
 
-import rootReducer from "./reducers";
+import store from "./store";
 import { MuiThemeProvider } from "@material-ui/core/styles";
-import { StylesContext } from "@material-ui/styles/StylesProvider";
 
 import AppContainer from "./components/AppContainer";
-
-const store = createStore(rootReducer, composeWithDevTools());
 
 const App = () => {
   return (
@@ -31,6 +27,7 @@ const App = () => {
                 <Switch>
                   <Route path="/shmac" component={Shmac} />
                   <Route path="/billing" render={() => <h3>Billing Page</h3>} />
+                  <Route path="/" component={Dashboard} />
                 </Switch>
               </AppContainer>
             </Typography>
