@@ -1,11 +1,36 @@
-import { Device, deviceActionKeys, DeviceActionTypes } from "./types";
+import { deviceActionKeys, DeviceActionTypes, DevicesState } from "./types";
 
-export interface State {
-  devices: Device[];
-}
-
-const initialState: State = {
-  devices: []
+const initialState: DevicesState = {
+  list: [
+    {
+      id: "test",
+      uid: "test",
+      creationDate: 0,
+      deleted: false,
+      description: "test",
+      deviceClass: "device",
+      intIpAddress: "test",
+      lastLoggedInUser: "test",
+      online: true,
+      operatingSystem: "test",
+      siteName: "test",
+      siteUid: "test"
+    },
+    {
+      id: "test2",
+      uid: "test2",
+      creationDate: 0,
+      deleted: false,
+      description: "test2",
+      deviceClass: "device",
+      intIpAddress: "test2",
+      lastLoggedInUser: "test2",
+      online: true,
+      operatingSystem: "test",
+      siteName: "test2",
+      siteUid: "test2"
+    }
+  ]
 };
 
 function deviceReducer(state = initialState, action: DeviceActionTypes) {

@@ -13,7 +13,11 @@ export type Device = {
   siteUid: string;
 };
 
-export const deviceActionTypes = {
+export interface DevicesState {
+  list: Device[];
+}
+
+export const deviceActionKeys = {
   FETCH_REQUEST: "@@Device/FETCH_REQUEST",
   FETCH_SUCCESS: "@@Device/FETCH_SUCCESS",
   FETCH_ERROR: "@@Device/FETCH_ERROR",

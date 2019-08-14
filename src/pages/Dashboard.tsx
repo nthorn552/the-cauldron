@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 
+import { ApplicationState } from "../store";
+import { Device } from "../store/devices/types";
+
 import {
   Theme,
   createStyles,
@@ -8,6 +11,7 @@ import {
   withStyles
 } from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
+import DeviceList from "../components/deviceList/DeviceList";
 
 const styles = ({ spacing }: Theme) =>
   createStyles({
@@ -16,16 +20,27 @@ const styles = ({ spacing }: Theme) =>
     }
   });
 
-class DashboardPage extends Component<WithStyles<typeof styles>> {
+interface DashboardProps {
+  deviceList: Device[];
+}
+
+type allProps = WithStyles<typeof styles> & DashboardProps;
+
+class DashboardPage extends Component<allProps> {
   render = () => {
     return (
       <Container className={this.props.classes.pageWrapper}>
-        <Paper>Num of devices: {}</Paper>
+        Num of devices: {this.props.deviceList.length}
+        <DeviceList />
       </Container>
     );
   };
 }
 
-function mapStateToProps(state) {}
+function mapStateToProps({ devices }: ApplicationState): DashboardProps {
+  return {
+    deviceList: devices.list
+  };
+}
 
-export default connect()(withStyles(styles)(DashboardPage));
+export default connect(mapStateToProps)(withStyles(styles)(DashboardPage));
