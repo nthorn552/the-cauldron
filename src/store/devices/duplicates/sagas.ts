@@ -1,4 +1,4 @@
-import { put, takeLatest } from "redux-saga/effects";
+import { put, call, takeLatest } from "redux-saga/effects";
 import { duplicateActionKeys } from "./types";
 
 function* fetchDuplicates(action: {
@@ -8,9 +8,11 @@ function* fetchDuplicates(action: {
   try {
     // TODO: fetch from API
     // TEMP: faking first card
+
+    const response = yield call(fetch, "https://api.service.com/endpoint");
     yield put({
       type: "FETCH_DEVICES_SUCCESS",
-      payload
+      payload: action.payload
     });
   } catch (e) {
     yield put({ type: "FETCH_DEVICES_ERROR", message: e.message });

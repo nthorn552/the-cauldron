@@ -1,7 +1,5 @@
-import { Device } from "../types";
-
 export interface DuplicateDeviceState {
-  list: Device[];
+  list: string[];
 }
 
 export const duplicateActionKeys = {
