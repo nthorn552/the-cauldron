@@ -1,3 +1,5 @@
+import {deviceActionKeys} from "./types";
+
 export interface AddDevicePayload {
   deviceId: string;
 }

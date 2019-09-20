@@ -7,7 +7,7 @@ import {
   WithStyles,
   withStyles
 } from "@material-ui/core/styles";
-import { Paper, Container } from "@material-ui/core";
+import { Paper, Container, Button } from "@material-ui/core";
 
 const styles = ({ spacing }: Theme) =>
   createStyles({
@@ -20,7 +20,9 @@ class ShmacPage extends Component<WithStyles<typeof styles>> {
   render = () => {
     return (
       <Container className={this.props.classes.pageWrapper}>
-        <Paper>test</Paper>
+        <Paper>
+          <Button>Create Job</Button>
+        </Paper>
       </Container>
     );
   };

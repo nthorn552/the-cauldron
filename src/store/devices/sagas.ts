@@ -1,21 +1,29 @@
 import { put, takeLatest, fork } from "redux-saga/effects";
+import axios from "axios";
 
 import duplicateSagas from "./duplicates/sagas";
 
 import { deviceActionKeys } from "./types";
 
-// worker Saga: will be fired on GET_CARDS_REQUESTED actions
 function* fetchDevices(action: {
   type: typeof deviceActionKeys.FETCH_REQUEST;
 }) {
   try {
     // TODO: fetch from API
+    axios
+      .get("http://192.168.10.31:8082/reports/rmm/duplicates")
+      .then(function() {
+        console.log("success");
+      })
+      .catch(function() {
+        console.log("error");
+      });
     yield put({
-      type: "FETCH_DEVICES_SUCCESS",
+      type: deviceActionKeys.FETCH_SUCCESS,
       payload: []
     });
   } catch (e) {
-    yield put({ type: "FETCH_DEVICES_ERROR", message: e.message });
+    yield put({ type: deviceActionKeys.FETCH_ERROR, message: e.message });
   }
 }
 
